@@ -112,6 +112,7 @@ def transform(data, model):
 
 
 def score(data, model, **kwargs):
+    
 
     results = model.predict_proba(data)
 
@@ -120,3 +121,4 @@ def score(data, model, **kwargs):
     predictions['False'] = 1 - predictions['True']
 
     return predictions
+
