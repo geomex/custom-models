@@ -1,0 +1,8 @@
+.DS_Store
+.vscode
+.metals
+**/.DS_Store
+**/.vscode
+
+**/ipynb_checkpoints
+**/__pycache__

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>read_me.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1>Recommender System Unstructured Example</h1>
+
+<p>This folder includes an example of a Keras movie recommender system. The model was built using the Notebook <a href="https://keras.io/examples/structured_data/collaborative_filtering_movielens/">here</a></p>
+
+<p>Using the saved model from that notebook, we then use DRUM to validate and then score using the saved model. </p>
+
+<p>In the <code>custom.py</code> script, we use the hook functions including the <code>load_model</code> and <code>score_unstructured</code> functions. </p>
+
+<p>Additional modifications have been made to the <code>score_unstructured</code> function to output the actual names of the movies
+as opposed to the index of the movieId. </p>
+
+</body>
+</html>

@@ -111,8 +111,10 @@ def transform(data, model):
     return data
 
 
+
 def score(data, model, **kwargs):
-    
+    """
+"""    
 
     results = model.predict_proba(data)
 
