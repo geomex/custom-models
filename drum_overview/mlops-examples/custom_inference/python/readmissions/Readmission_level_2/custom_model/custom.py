@@ -13,7 +13,26 @@ from typing import List, Optional
 from scipy.special import expit
 g_code_dir = None
 
-schema = {"race": "object", "gender": "object", "age": "object", "weight": "object", "admission_type_id": "object", "discharge_disposition_id": "object", "admission_source_id": "object", "time_in_hospital": "int64", "payer_code": "object", "medical_specialty": "object", "num_lab_procedures": "int64", "num_procedures": "int64", "num_medications": "int64", "number_outpatient": "int64", "number_emergency": "int64", "number_inpatient": "int64", "number_diagnoses": "int64", "max_glu_serum": "object", "A1Cresult": "object", "metformin": "object", "repaglinide": "object", "nateglinide": "object", "chlorpropamide": "object", "glimepiride": "object", "acetohexamide": "object", "glipizide": "object", "glyburide": "object", "tolbutamide": "object", "pioglitazone": "object", "rosiglitazone": "object", "acarbose": "object", "miglitol": "object", "troglitazone": "object", "tolazamide": "object", "examide": "object", "citoglipton": "object", "insulin": "object", "glyburide_metformin": "object", "glipizide_metformin": "object", "glimepiride_pioglitazone": "object", "metformin_rosiglitazone": "object", "metformin_pioglitazone": "object", "change": "object", "diabetesMed": "object"}
+schema = {"race": "object", "gender": "object", "age": "object",
+          "weight": "object", "admission_type_id": "object",
+          "discharge_disposition_id": "object", "admission_source_id": "object",
+          "time_in_hospital": "int64", "payer_code": "object",
+          "medical_specialty": "object", "num_lab_procedures": "int64",
+          "num_procedures": "int64", "num_medications": "int64",
+          "number_outpatient": "int64", "number_emergency": "int64",
+          "number_inpatient": "int64", "number_diagnoses": "int64",
+          "max_glu_serum": "object", "A1Cresult": "object", "metformin":
+          "object", "repaglinide": "object", "nateglinide": "object",
+          "chlorpropamide": "object", "glimepiride": "object", "acetohexamide":
+          "object", "glipizide": "object", "glyburide": "object", "tolbutamide":
+          "object", "pioglitazone": "object", "rosiglitazone": "object",
+          "acarbose": "object", "miglitol": "object", "troglitazone": "object",
+          "tolazamide": "object", "examide": "object", "citoglipton": "object",
+          "insulin": "object", "glyburide_metformin": "object",
+          "glipizide_metformin": "object", "glimepiride_pioglitazone": "object",
+          "metformin_rosiglitazone": "object", "metformin_pioglitazone":
+          "object", "change": "object", "diabetesMed": "object"}
+
 
 def init(code_dir):
     global g_code_dir
@@ -25,6 +44,7 @@ def read_input_data(input_binary_data):
 
     #Saving this for later
     return data
+
 
 def fit(
     X: pd.DataFrame,
@@ -104,13 +124,15 @@ def transform(data, model):
     
     return preprocessed
 
+
 def load_model(code_dir):
     model_path = 'model.pkl'
     model = joblib.load(os.path.join(code_dir, model_path))
     return model
 
+
 def score(data, model, **kwargs):
     results = model.predict_proba(data)
-    predictions = pd.DataFrame({'True': results[:, 0], 'False':results[:, 1]})
+    predictions = pd.DataFrame({'TRUE': results[:, 0], 'FALSE':results[:, 1]})
 
     return predictions
